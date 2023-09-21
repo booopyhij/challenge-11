@@ -13,7 +13,7 @@ class Store {
   read() {
     return readFileAsync('db/db.json', 'utf8');
   }
-  //function to write the not file
+  //function to write the note file
   write(note) {
     return writeFileAsync('db/db.json', JSON.stringify(note));
   }

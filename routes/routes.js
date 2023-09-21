@@ -1,8 +1,12 @@
+// importing express package with using router. and importing the data base.
+
 const router = require('express').Router();
 const store = require('../db/store');
-// GET "/api/notes" responds with all notes from the database
+// GET "/notes" responds with all notes from the database
 router.get('/notes', (req, res) => {
   store
+  //pulls pull function from index.js
+  //Makes a get fetch request for the notes
     .getNotes()
     .then((notes) => {
       return res.json(notes);
@@ -13,6 +17,8 @@ router.get('/notes', (req, res) => {
 // posts the stored data to the notes.htmls
 router.post('/notes', (req, res) => {
     store
+    //function from the index.js. 
+    // Creates new note. Part of the CRUD process
     .addNote(req.body)
     .then((note) => res.json(note))
     .catch((err) => console.log(err));
@@ -21,6 +27,8 @@ router.post('/notes', (req, res) => {
 // removes the notes by id from the db.json
 router.delete("/notes/:id", (req, res) => {
     store
+    //pull the function from index.js. built to delete
+    // a note. part of the CRUD process
     .removeNote(req.params.id)
     .then(() => res.json({ ok: true }))
     .catch((err) => console.log(err));

@@ -1,7 +1,11 @@
+// imports the express package
+
 const express = require('express');
+// requires the routes for pulling the page
 const htmlRoutes = require('./routes/htmlRoutes');
 const apiRoutes = require('./routes/routes.js');
 
+// Const that has the server port 
 const PORT = process.env.port || 3001;
 
 const app = express();
@@ -25,6 +29,7 @@ app.get('/public/notes.html', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// how the server starts
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
