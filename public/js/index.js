@@ -23,18 +23,22 @@ const hide = (elem) => {
 };
 
 // activeNote is used to keep track of the note in the textarea
+// the active note starts as an empty array, allowing for data to be inserted 
+// as the user uses the app
 let activeNote = {};
 
+// get request function for the the notes.html
 const getNotes = () =>
-  fetch('/api/notes', {
+  fetch('/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
+  // post requestfunction for notes.html
 const saveNote = (note) =>
-  fetch('/api/notes', {
+  fetch('/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -42,14 +46,18 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
+
+  // Delete request for the notes.html
 const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+  fetch(`/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
+
+  //function that renders the active note
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
@@ -66,6 +74,8 @@ const renderActiveNote = () => {
   }
 };
 
+
+//function that handles the saving logic for the notes
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
@@ -108,6 +118,8 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
+// Function that handles whether the save button should or shouldn't
+// be seen by the user
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);

@@ -21,13 +21,13 @@
 
   
   ## Description
-  this project is made to be able to take simple notes with express. Saving them storing them and deleting them.
+  this project is made to be able to take simple notes with express. Saving them storing them and deleting them. We were given the starter code and had to write the routing files and the store.js in the db folder.
  
   ## Installation 
   use npm i to install the package.json
   
   ## Usage
-  use node server.js to run the program, then navigate to the notes page and add and delte notes as seen fit
+  use node server.js to run the program, then navigate to the notes page and add and delete notes as seen fit
 
  
   ## Questions
